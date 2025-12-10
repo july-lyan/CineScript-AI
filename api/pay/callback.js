@@ -1,4 +1,4 @@
-import { getStore, ensureUser, verifySign, PAY_MCH_ID } from "../_utils";
+import { getStore, ensureUser, verifySign, PAY_MCH_ID } from "../_utils.js";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {

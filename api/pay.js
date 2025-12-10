@@ -1,4 +1,4 @@
-import { createEasyPayOrder, getStore, getSessionId, PAY_PER_USE_PRICE } from "./_utils";
+import { createEasyPayOrder, getStore, getSessionId, PAY_PER_USE_PRICE } from "./_utils.js";
 
 export default async function handler(req, res) {
   if (req.method === "OPTIONS") {

@@ -1,4 +1,4 @@
-import { getStore } from "../_utils";
+import { getStore } from "../_utils.js";
 
 export default async function handler(req, res) {
   if (req.method === "OPTIONS") {

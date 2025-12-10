@@ -3,7 +3,7 @@ import {
   ensureUser,
   runModel,
   FREE_USAGE_LIMIT,
-} from "./_utils";
+} from "./_utils.js";
 
 export default async function handler(req, res) {
   if (req.method === "OPTIONS") {
