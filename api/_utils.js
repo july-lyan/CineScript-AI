@@ -173,13 +173,26 @@ export const runModel = async ({ input, tier }) => {
   }
 
   const ai = new GoogleGenAI({ apiKey });
-  const model = tier === "paid" ? "gemini-3-pro-preview" : "gemini-2.5-flash";
+  const primaryModel = "gemini-3-pro-preview";
+  const fallbackModel = "gemini-2.5-flash";
   const prompt = buildPrompt(input);
-  const resp = await ai.models.generateContent({
-    model,
-    contents: prompt,
-  });
-  const parsed = parseModelJson(resp.text || "");
-  parsed.usedModel = model;
-  return parsed;
+
+  try {
+    const resp = await ai.models.generateContent({
+      model: primaryModel,
+      contents: prompt,
+    });
+    const parsed = parseModelJson(resp.text || "");
+    parsed.usedModel = primaryModel;
+    return parsed;
+  } catch (e) {
+    console.warn("primary model failed, fallback to flash", e);
+    const resp = await ai.models.generateContent({
+      model: fallbackModel,
+      contents: prompt,
+    });
+    const parsed = parseModelJson(resp.text || "");
+    parsed.usedModel = fallbackModel;
+    return parsed;
+  }
 };
