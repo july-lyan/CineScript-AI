@@ -804,14 +804,14 @@ const App = () => {
                   </button>
                 </div>
 
-                <div className="bg-slate-900 rounded-xl overflow-hidden shadow-2xl flex-grow flex flex-col min-h-0 border border-slate-800">
+                <div className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm dark:shadow-2xl flex-grow flex flex-col min-h-0 border border-slate-200 dark:border-slate-800 transition-colors duration-300">
                   {/* Script Title Header */}
-                  <div className="flex-shrink-0 p-6 sm:p-8 bg-gradient-to-br from-slate-900 to-slate-800 border-b border-slate-700/50 text-center relative overflow-hidden">
+                  <div className="flex-shrink-0 p-6 sm:p-8 bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border-b border-slate-100 dark:border-slate-700/50 text-center relative overflow-hidden transition-colors duration-300">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
-                    <h3 className="text-2xl font-serif text-white font-bold leading-snug tracking-wide mb-2">
+                    <h3 className="text-2xl font-serif text-slate-900 dark:text-white font-bold leading-snug tracking-wide mb-2">
                        {result.script.title}
                     </h3>
-                    <div className="flex items-center justify-center gap-3 text-[10px] text-slate-400 uppercase tracking-widest">
+                    <div className="flex items-center justify-center gap-3 text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest">
                       <span>Shooting Script</span>
                       <span className="w-1 h-1 rounded-full bg-slate-600"></span>
                       <span>{new Date().toLocaleDateString()}</span>
@@ -821,41 +821,41 @@ const App = () => {
                   </div>
 
                   {/* Scenes List */}
-                  <div className="flex-grow overflow-y-auto p-4 sm:p-6 space-y-6 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
+                  <div className="flex-grow overflow-y-auto p-4 sm:p-6 space-y-6 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-700 scrollbar-track-slate-100 dark:scrollbar-track-transparent transition-colors duration-300">
                     {result.script.scenes.map((scene, index) => (
-                      <div key={index} className="group border border-slate-800 bg-slate-800/30 hover:bg-slate-800/50 rounded-lg p-5 transition-all duration-300">
+                      <div key={index} className="group border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/30 hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg p-5 transition-all duration-300 shadow-sm">
                         {/* Scene Header */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-700/50 border-dashed">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-100 dark:border-slate-700/50 border-dashed transition-colors duration-300">
                           <div className="flex items-center gap-3">
-                            <span className="bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded">
+                            <span className="bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded shadow-sm">
                               SCENE {scene.sceneNumber}
                             </span>
-                            <span className="text-slate-200 font-bold uppercase tracking-wide text-sm">
+                            <span className="text-slate-800 dark:text-slate-200 font-bold uppercase tracking-wide text-sm">
                               {scene.location}
                             </span>
                           </div>
-                          <div className="flex items-center gap-1.5 text-slate-400 text-xs bg-slate-900/50 px-2 py-1 rounded border border-slate-700">
+                          <div className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 text-xs bg-slate-100 dark:bg-slate-900/50 px-2 py-1 rounded border border-slate-200 dark:border-slate-700 transition-colors duration-300">
                             <Camera className="w-3 h-3" />
                             {scene.shotType}
                           </div>
                         </div>
 
                         {/* Visuals */}
-                        <div className="mb-4 pl-3 border-l-2 border-slate-700 group-hover:border-indigo-500/50 transition-colors">
-                          <div className="flex items-center gap-2 text-[10px] text-slate-500 uppercase tracking-wider mb-1">
+                        <div className="mb-4 pl-3 border-l-2 border-slate-200 dark:border-slate-700 group-hover:border-indigo-500/50 transition-colors">
+                          <div className="flex items-center gap-2 text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-1">
                              <Film className="w-3 h-3" /> 画面描述 / Visuals
                           </div>
-                          <p className="text-slate-300 text-sm leading-relaxed">
+                          <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
                             {scene.visuals}
                           </p>
                         </div>
 
                         {/* Audio */}
-                        <div className="pl-3 border-l-2 border-slate-700 group-hover:border-emerald-500/50 transition-colors">
-                          <div className="flex items-center gap-2 text-[10px] text-slate-500 uppercase tracking-wider mb-1">
+                        <div className="pl-3 border-l-2 border-slate-200 dark:border-slate-700 group-hover:border-emerald-500/50 transition-colors">
+                          <div className="flex items-center gap-2 text-[10px] text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-1">
                              <Music className="w-3 h-3" /> 音效 & 对白 / Audio
                           </div>
-                          <p className="text-slate-300 text-sm leading-relaxed font-serif italic bg-black/20 p-3 rounded-lg border border-white/5">
+                          <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed font-serif italic bg-slate-50 dark:bg-black/20 p-3 rounded-lg border border-slate-200 dark:border-white/5 transition-colors duration-300">
                             “ {scene.audio} ”
                           </p>
                         </div>
@@ -864,9 +864,9 @@ const App = () => {
                     
                     {/* End Marker */}
                     <div className="flex items-center justify-center gap-2 pt-4 pb-2">
-                       <div className="h-px w-10 bg-slate-800"></div>
-                       <span className="text-slate-600 text-[10px] uppercase tracking-widest">End of Script</span>
-                       <div className="h-px w-10 bg-slate-800"></div>
+                       <div className="h-px w-10 bg-slate-200 dark:bg-slate-800 transition-colors duration-300"></div>
+                       <span className="text-slate-500 dark:text-slate-600 text-[10px] uppercase tracking-widest">End of Script</span>
+                       <div className="h-px w-10 bg-slate-200 dark:bg-slate-800 transition-colors duration-300"></div>
                     </div>
                   </div>
                 </div>
